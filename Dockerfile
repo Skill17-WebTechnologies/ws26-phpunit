@@ -5,6 +5,8 @@ RUN apt-get update && apt-get install -y --no-install-recommends git unzip libzi
     && rm -rf /var/lib/apt/lists/*
 WORKDIR /app
 COPY composer.json composer.lock ./
+ARG COMPOSER_REGISTRY=https://repo.packagist.org
+RUN composer config -g repos.packagist composer "$COMPOSER_REGISTRY"
 RUN composer install --no-interaction --prefer-dist
 COPY . .
 # Tests run at build time: a red suite fails the image build (and the CI build stage).
