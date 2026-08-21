@@ -1,0 +1,12 @@
+# Dependencies
+/vendor/
+
+# PHPUnit
+.phpunit.result.cache
+/.phpunit.cache/
+
+# OS / editor
+.DS_Store
+Thumbs.db
+*.log
+npm-debug.log*
